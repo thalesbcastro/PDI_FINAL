@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron hero-spacer">
+        <h1><b>Filtros</b> - Faça upload da imagem</h1>
+        <h1></h1>
+        <p>
+          <!-- Formulario responsavel por baixar a imagem-->
+          <form action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="media">
+            <div class="media-left media-middle">
+              <br>
+              <br>
+                <p>{{ form.non_field_errors }}</p>
+                <p>
+                    {{ form.imagem.errors }}
+                    {{ form.imagem }}
+                </p>
+
+              </p>
+                  <input type="submit" value="Upload">
+              </p>
+            </form>
+            <br>
+          </div>
+        </div>
+          <!-- Fim do formulario pra baixar a imagem-->
+
+    </header>
+
+    <hr>
+
+    <!-- Title -->
+
+    <!-- /.row -->
+          {% if  data %}
+          <div class="row">
+              <div class="col-lg-12">
+                  <h3><b>Imagens<b></h3>
+              </div>
+          </div>
+          <div class="col-md-3 col-sm-6 hero-feature">
+              <div class="thumbnail">
+                  <img src="{% static 'img/original.png'%}" alt="" />
+
+                  <div class="caption">
+
+                      <h3>Imagem original</h3>
+
+
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 hero-feature">
+              <div class="thumbnail">
+                  <img src="{% static 'img/canny.png'%}" alt="" />
+
+                  <div class="caption">
+
+                      <h3>Filtro de Canny</h3>
+
+
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 hero-feature">
+              <div class="thumbnail">
+                  <img src="{% static 'img/laplaciano.png'%}" alt="" />
+
+                  <div class="caption">
+
+                      <h3>Filtro laplaciano</h3>
+
+
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 hero-feature">
+              <div class="thumbnail">
+                  <img src="{% static 'img/gaussiano.png'%}" alt="" />
+
+                  <div class="caption">
+
+                      <h3>Filtro gaussiano</h3>
+
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 hero-feature">
+              <div class="thumbnail">
+                  <img src="{% static 'img/sobelx.png'%}" alt="" />
+
+                  <div class="caption">
+
+                      <h3>Filtro de sobel na direção x</h3>
+
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 hero-feature">
+              <div class="thumbnail">
+                  <img src="{% static 'img/sobely.png'%}" alt="" />
+
+                  <div class="caption">
+
+                      <h3>Filtro de sobel na direção y</h3>
+
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 hero-feature">
+              <div class="thumbnail">
+                  <img src="{% static 'img/negativo.png'%}" alt="" />
+
+                  <div class="caption">
+
+                      <h3>Negativo da imagem</h3>
+                    
+                  </div>
+              </div>
+          </div>
+          {% else %}
+          <div class="row">
+              <div class="col-lg-12">
+                  <h3><b>Não há imagens, faça upload para visualizar os efeitos.<b></h3>
+              </div>
+          </div>
+          {% endif %}
+
+    <hr>
+{% endblock %}

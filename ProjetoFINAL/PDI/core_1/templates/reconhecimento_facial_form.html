@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+    <header class="jumbotron hero-spacer">
+      <h1><b>Realize o teste</b></h1>
+        <p>
+          <!-- Formulario responsavel por baixar a imagem-->
+          <form action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="media">
+            <div class="media-left media-middle">
+              <br>
+              <br>
+              <p>{{ form.non_field_errors }}</p>
+              <p>
+                  {{ form.imagem.errors }}
+                  {{ form.imagem }}
+              </p>
+
+            </p>
+                <input type="submit" value="Upload">
+
+            </form>
+          </div>
+        </div>
+
+          </header>
+        <hr>
+
+
+{% endblock %}

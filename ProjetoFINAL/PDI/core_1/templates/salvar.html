@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <header class="jumbotron hero-spacer">
+        <ul>
+          <h2><b>Salve no máximo 5 imagens</b></h2>
+
+        </ul>
+        <form method="post" action="../upload/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h4><br><ul>
+        <input type="file" name="files" multiple/><br>
+        <input type="submit" value="Upload"/>
+      </ul>
+      </h4>
+      </form>
+
+    </div>
+
+
+    </header>
+  <hr>
+
+{% endblock %}

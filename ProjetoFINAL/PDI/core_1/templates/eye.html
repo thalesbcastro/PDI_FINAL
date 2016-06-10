@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+
+
+
+  <div class="row">
+      <div class="col-lg-12">
+          <h3><b>Detecção Facial<b></h3>
+      </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 hero-feature">
+      <div class="thumbnail">
+          <img src="{% static 'img/deteccao_original.png'%}" alt="" />
+
+          <div class="caption">
+
+              <h3>Imagem original</h3>
+
+          </div>
+      </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 hero-feature">
+      <div class="thumbnail">
+          <img src="{% static 'img/deteccao.png'%}" alt="" />
+
+          <div class="caption">
+
+              <h3>Face detectada</h3>
+
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-12">
+          <h3><b>Detecção dos olhos<b></h3>
+      </div>
+  </div>
+  <div class="col-md-3 col-sm-6 hero-feature">
+      <div class="thumbnail">
+          <img src="{% static 'img/deteccao_original.png'%}" alt="" />
+
+          <div class="caption">
+
+              <h3>Imagem original</h3>
+
+          </div>
+      </div>
+  </div>
+  <div class="col-md-3 col-sm-6 hero-feature">
+      <div class="thumbnail">
+          <img src="{% static 'img/detect_olho.png'%}" alt="" />
+
+          <div class="caption">
+
+              <h3>Olhos detectados</h3>
+
+          </div>
+      </div>
+  </div>
+
+
+  <hr>
+{% endblock %}

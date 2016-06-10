@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+    <header class="jumbotron hero-spacer">
+      <h1><b>Detecção Facial</b> - Faça upload da imagem</h1>
+        <p>
+          <!-- Formulario responsavel por baixar a imagem-->
+          <form action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="media">
+            <div class="media-left media-middle">
+              <br>
+              <br>
+              <p>{{ form.non_field_errors }}</p>
+              <p>
+                  {{ form.imagem.errors }}
+                  {{ form.imagem }}
+              </p>
+
+            </p>
+                <input type="submit" value="Upload">
+
+            </form>
+            <br>
+            <!--
+            <a class="btn btn-primary" href="{% url 'deteccao' %}">Ver também detecção facial <span class="glyphicon glyphicon-chevron-right"></span></a>
+          -->
+            <!-- Colocar um botão pra pagina de deteccao de face -->
+          </div>
+        </div>
+          <!-- Fim do formulario pra baixar a imagem-->
+
+    </header>
+        {% if  data %}
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3><b>Detecção Facial<b></h3>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <img src="{% static 'img/deteccao_original.png'%}" alt="" />
+
+                <div class="caption">
+
+                    <h3>Imagem original</h3>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <img src="{% static 'img/deteccao.png'%}" alt="" />
+
+                <div class="caption">
+
+                    <h3>Face detectada</h3>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-3 col-sm-6 hero-feature">
+
+        <a class="alert alert-info" role="alert" href="{% url 'olhos' %}">Ver também detecção dos olhos</a>
+      </div>
+        {% else %}
+        <div class="row">
+            <div class="col-lg-12">
+                <h3><b>Não há imagem.<b></h3>
+            </div>
+        </div>
+        {% endif %}
+
+
+
+
+      <hr>
+
+
+{% endblock %}

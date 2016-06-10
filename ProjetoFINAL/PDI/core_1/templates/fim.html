@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  {% if  data %}
+    <ul>
+        <ul>
+          <img src="{% static 'img/imagemRec.png' %}" alt="" />
+          <h2>Sua imagem foi reconhecida.</h2><a href="{% url 'reconhecimento_facial' %}"> Repita o teste com outra imagem</a>
+        </ul>
+    </ul>
+
+  {% else %}
+  <ul>
+      <ul>
+        <h2>Imagem não reconhecida.</h2><a href="{% url 'form' %}">Volte e baixa novamente as imagens</a> ou
+        <a href="{% url 'reconhecimento_facial' %}"> tente com outra imagem</a>
+      </ul>
+  </ul>
+  {% endif %}
+  <hr>
+{% endblock %}
